@@ -20,7 +20,7 @@ services:
       - ALLOWEDIPS=${ALLOWEDIPS}
       - LOG_CONFS=${LOG_CONFS}
     volumes:
-      - ~/config:/config
+      - ./config:/config
       - /lib/modules:/lib/modules
     ports:
       - 51820:51820/udp

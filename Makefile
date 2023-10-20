@@ -2,7 +2,7 @@
 COMPOSE_FILE := docker-compose.yml
 
 # Base command for Docker Compose
-DC := docker-compose -f $(COMPOSE_FILE)
+DC := docker compose -f $(COMPOSE_FILE)
 
 .PHONY: up down restart recreate
 
