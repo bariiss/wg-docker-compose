@@ -12,7 +12,7 @@ The `docker-compose.yml` file defines the WireGuard service along with its neces
 
 ### Environment Variables:
 
-\```plaintext
+```plaintext
 - PUID & PGID: User and group IDs.
 - TZ: Timezone.
 - SERVERURL: The server's URL.
@@ -21,7 +21,7 @@ The `docker-compose.yml` file defines the WireGuard service along with its neces
 - PEERDNS: DNS for peers.
 - ALLOWEDIPS: Allowed IP addresses.
 - LOG_CONFS: Logging configurations.
-\```
+```
 
 Make sure you set these variables before you run the service. You can either export them in your shell or use an `.env` file.
 
@@ -30,24 +30,25 @@ Make sure you set these variables before you run the service. You can either exp
 A `Makefile` has been provided for easier management of the Docker Compose commands:
 
 ### Start the containers:
-\```bash
+
+```bash
 make up
-\```
+```
 
 ### Stop and remove the containers:
-\```bash
+```bash
 make down
-\```
+```
 
 ### Restart the containers:
-\```bash
+```bash
 make restart
-\```
+```
 
 ### Recreate and start the containers:
-\```bash
+```bash
 make recreate
-\```
+```
 
 ## Networks
 
