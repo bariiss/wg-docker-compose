@@ -13,6 +13,7 @@ The `docker-compose.yml` file defines the WireGuard service along with its neces
 ### Environment Variables:
 
 ```plaintext
+- CONTAINERNAME: Container name.
 - PUID & PGID: User and group IDs.
 - TZ: Timezone.
 - SERVERURL: The server's URL.
