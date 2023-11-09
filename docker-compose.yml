@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-  wireguard:
+  wg-server:
     image: lscr.io/linuxserver/wireguard:latest
-    container_name: wireguard
+    container_name: ${CONTAINERNAME}
     networks:
-      - wireguard
+      - wg-server
     cap_add:
       - NET_ADMIN
       - SYS_MODULE #optional
@@ -23,10 +23,10 @@ services:
       - ./config:/config
       - /lib/modules:/lib/modules
     ports:
-      - 51820:51820/udp
+      - ${SERVERPORT}:51820/udp
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
     restart: always
 
 networks:
-  wireguard:
+  wg-server:
