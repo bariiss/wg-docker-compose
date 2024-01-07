@@ -23,10 +23,27 @@ services:
       - ./config:/config
       - /lib/modules:/lib/modules
     ports:
-      - ${SERVERPORT}:51820/udp
+      - ${SERVERPORT}:${SERVERPORT}/udp
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
-    restart: always
+    restart: unless-stopped
+  adguardhome:
+    image: adguard/adguardhome
+    container_name: adguardhome
+    restart: unless-stopped
+    ports:
+      - ${DNSUIPORT}:3000
+    volumes:
+      - ./adguard_data:/opt/adguardhome/work
+      - ./adguard_config:/opt/adguardhome/conf
+    networks:
+      wg-server:
+        ipv4_address: ${PEERDNS}
 
 networks:
   wg-server:
+    name: wg-server
+    ipam:
+      driver: default
+      config:
+        - subnet: ${SERVERSUBNET}
